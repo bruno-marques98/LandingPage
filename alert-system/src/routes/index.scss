@@ -1,0 +1,15 @@
+
+	@use '@material/image-list/index' as image-list;
+
+	.my-image-list-standard {
+	@include image-list.standard-columns(3);
+	max-width: 680px;
+    display: flex;
+	}
+
+	@media (max-width: 599px) {
+	.my-image-list-standard {
+		@include image-list.standard-columns(3);
+        display: grid;
+	}
+	}
