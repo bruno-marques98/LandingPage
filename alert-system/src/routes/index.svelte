@@ -32,8 +32,6 @@
 </script>
 
 
-
-
 {#await promise}
 	<p>Loading...</p>
 {:then status}

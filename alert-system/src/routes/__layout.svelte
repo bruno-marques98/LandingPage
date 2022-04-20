@@ -11,38 +11,16 @@
 </script>
 <div>
     <div class="flexy">
-        <div class="top-app-bar-container">
-          <TopAppBar
-            variant="static"
-            {prominent}
-            {dense}
-            color='primary'
-          >
-            <Row>
-              <Section>
-                <IconButton class="material-icons">
-                    <Icon component={Svg} viewBox="0 0 24 24">
-                        <path fill="currentColor" d={mdiMenu} />
-                      </Icon>
-                </IconButton>
-              </Section>
-              <Section>
-                  <Nav />
-              </Section>
-              <Section align="end" toolbar>
-                <IconButton class="material-icons" aria-label="Download"
-                  >file_download</IconButton
-                >
-                <IconButton class="material-icons" aria-label="Print this page"
-                  >print</IconButton
-                >
-                <IconButton class="material-icons" aria-label="Bookmark this page"
-                  >bookmark</IconButton
-                >
-              </Section>
-            </Row>
-          </TopAppBar>
+
+      <div class="navbar">
+        <div class="link">
+          <a href="/">Alertas</a>
         </div>
+        <div class="link">
+          <a href="/dataview">Performance</a>
+        </div>
+      </div>
+      
     </div>
     <slot></slot>   
 </div>
@@ -50,4 +28,27 @@
     @tailwind base;
     @tailwind components;
     @tailwind utilities;
+
+    .navbar{
+      background-color: rgb(0, 160, 247);
+      display: inline-block;
+      width: 100%;
+    }
+
+    .navbar .link{
+      text-decoration: none;
+      color: white;
+      font-size: large;
+      margin-left: 10px;
+      padding: 10px;
+      float: left;
+    }
+
+    .navbar .link a{
+      color: white;
+    }
+
+    .navbar .link :hover{
+      text-decoration: underline;
+    }
 </style>
