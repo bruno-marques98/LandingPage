@@ -33,9 +33,7 @@
 </script>
 
 
-
-
-{#if isAnyServiceStopped == true}
+{#if isAnyServiceStopped}
 	<div style="padding: 20px; background-color: #f44336; color: white;">
 		<strong>Atenção!</strong> Existem serviços parados
 		<span
