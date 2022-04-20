@@ -1,6 +1,5 @@
 <script lang="ts">
     import Nav from "../components/Nav.svelte";
-    import DataVisualization from "../components/dataVisualization.svelte";
 
     import TopAppBar, { Row, Section, Title } from '@smui/top-app-bar';
     import IconButton, {Icon} from '@smui/icon-button';
