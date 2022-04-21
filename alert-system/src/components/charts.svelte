@@ -14,9 +14,6 @@
 
 	//Import the Svelte component
 	import SvelteFC, { fcRoot } from 'svelte-fusioncharts';
-	import { derived } from 'svelte/store';
-
-	import Ref from '../components/refresh.svelte';
 
 	// Always set FusionCharts as the first parameter
 	fcRoot(FusionCharts, Widgets, FusionTheme);
@@ -100,8 +97,8 @@
 			dials: dialsMemory
 		}
 	};
-	//STEP 2 : preparing the chart Data
 
+	//STEP 2 : preparing the chart Data
 	const dialsDisk = {
 		dial: [
 			{
@@ -109,6 +106,7 @@
 			}
 		]
 	};
+    
 	//STEP 3: Create your configuration object
 	const chartConfigsDisk = {
 		type: 'angulargauge', // The gauge type

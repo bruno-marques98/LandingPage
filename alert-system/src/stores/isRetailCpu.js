@@ -1,5 +1,4 @@
 import { writable } from "svelte/store";
-console.log("Imported");
 
 export const retailCpu = writable([]);
 
