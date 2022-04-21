@@ -3,19 +3,16 @@
 	export let memoryValue;
 	export let diskValue;
 
-	//Import the Fusioncharts library
 	import FusionCharts from 'fusioncharts';
 
-	//Import the Widgets
 	import Widgets from 'fusioncharts/fusioncharts.widgets';
 
-	//Import the theme as fusion
 	import FusionTheme from 'fusioncharts/themes/fusioncharts.theme.fusion';
 
-	//Import the Svelte component
 	import SvelteFC, { fcRoot } from 'svelte-fusioncharts';
 
-	// Always set FusionCharts as the first parameter
+	import Circle from 'svelte-material-icons/AlertCircle.svelte';
+
 	fcRoot(FusionCharts, Widgets, FusionTheme);
 	const colorRange = {
 		color: [
@@ -43,15 +40,14 @@
 			}
 		]
 	};
-	//STEP 3: Create your configuration object
+
 	const chartConfigsCpu = {
-		type: 'angulargauge', // The gauge type
-		width: '450', // Width of the gauge
-		height: '250', // Height of the gauge
-		dataFormat: 'json', // Data type
-		renderAt: 'chart-container', //Container where the gauge will render
+		type: 'angulargauge',
+		width: '450',
+		height: '300',
+		dataFormat: 'json',
+		renderAt: 'chart-container',
 		dataSource: {
-			// Gauge Configuration
 			chart: {
 				caption: 'Server CPU',
 				lowerLimit: '0',
@@ -61,7 +57,6 @@
 				theme: 'fusion',
 				showToolTip: '0'
 			},
-			// Chart Data
 			colorRange: colorRange,
 			dials: dialsCpu
 		}
@@ -74,15 +69,14 @@
 			}
 		]
 	};
-	//STEP 3: Create your configuration object
+
 	const chartConfigsMemory = {
-		type: 'angulargauge', // The gauge type
-		width: '450', // Width of the gauge
-		height: '250', // Height of the gauge
-		dataFormat: 'json', // Data type
-		renderAt: 'chart-container', //Container where the gauge will render
+		type: 'angulargauge',
+		width: '450',
+		height: '300',
+		dataFormat: 'json',
+		renderAt: 'chart-container',
 		dataSource: {
-			// Gauge Configuration
 			chart: {
 				caption: 'Server Memory',
 				lowerLimit: '0',
@@ -92,13 +86,11 @@
 				theme: 'fusion',
 				showToolTip: '0'
 			},
-			// Chart Data
 			colorRange: colorRange,
 			dials: dialsMemory
 		}
 	};
 
-	//STEP 2 : preparing the chart Data
 	const dialsDisk = {
 		dial: [
 			{
@@ -106,16 +98,14 @@
 			}
 		]
 	};
-    
-	//STEP 3: Create your configuration object
+
 	const chartConfigsDisk = {
-		type: 'angulargauge', // The gauge type
-		width: '450', // Width of the gauge
-		height: '250', // Height of the gauge
-		dataFormat: 'json', // Data type
-		renderAt: 'chart-container', //Container where the gauge will render
+		type: 'angulargauge',
+		width: '450',
+		height: '300',
+		dataFormat: 'json',
+		renderAt: 'chart-container',
 		dataSource: {
-			// Gauge Configuration
 			chart: {
 				caption: 'Server Used Disk Space',
 				lowerLimit: '0',
@@ -125,14 +115,43 @@
 				theme: 'fusion',
 				showToolTip: '0'
 			},
-			// Chart Data
 			colorRange: colorRange,
 			dials: dialsDisk
 		}
 	};
 </script>
+
 <div style="display: flex; margin : auto;">
-    <SvelteFC {...chartConfigsCpu} />
+	<SvelteFC {...chartConfigsCpu} />
+	{#if cpuValue > 75}
+		<span class="alert"><Circle color="red" /></span>
+	{/if}
 	<SvelteFC {...chartConfigsMemory} />
-    <SvelteFC {...chartConfigsDisk} />
+	{#if memoryValue > 75}
+		<span class="alert"><Circle color="red" /></span>
+	{/if}
+	<SvelteFC {...chartConfigsDisk} />
+	{#if diskValue > 75}
+		<span class="alert"><Circle color="red" /></span>
+	{/if}
 </div>
+
+<style>
+	@keyframes blink {
+		from {
+			opacity: 0;
+		}
+		to {
+			opacity: 1;
+		}
+	}
+	.alert {
+		display: inline;
+		margin: 0;
+		padding: 0;
+		position: relative;
+		left: -5%;
+		top: 10px;
+		animation: blink 1s linear infinite;
+	}
+</style>

@@ -8,7 +8,6 @@
 
   function setErrorTrue() {
 		error = true;
-		console.log('Setted to true');
 	}
 </script>
 
@@ -86,9 +85,8 @@
     }
   }
 
-
 	.alert {
 		display: inline;
-    animation: blink 1s linear infinite;
+   		 animation: blink 1s linear infinite;
 	}
 </style>

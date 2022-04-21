@@ -1,7 +1,6 @@
 <script>
 	// @ts-nocheck
 
-	//console.log("Data " + $pokemon);
 	async function getStatus() {
 		let response = await fetch('http://192.168.45.223/surveillance_TESTE/isretail_status_min.php', {
 			header: { 'Access-Control-Allow-Origin': '*' }
