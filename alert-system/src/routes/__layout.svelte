@@ -4,12 +4,9 @@
 	import { retailMemory } from '../stores/isRetailMemory';
 	import { retailDisk } from '../stores/isRetailDisk';
 	
-  let prominent = false;
-	let dense = false;
-
 	let error = false;
 
-	function setErrorTrue() {
+  function setErrorTrue() {
 		error = true;
 		console.log('Setted to true');
 	}
@@ -42,7 +39,7 @@
 			<div class="link">
 				<a href="/dataview">Performance</a>
 				{#if error}
-					<span class="teste"><Circle color="red" /></span>
+					<span class="alert"><Circle color="red" /></span>
 				{/if}
 			</div>
 		</div>
@@ -80,7 +77,18 @@
 		text-decoration: underline;
 	}
 
-	.teste {
+  @keyframes blink{
+    from{
+      opacity: 0;
+    }
+    to{
+      opacity: 1;
+    }
+  }
+
+
+	.alert {
 		display: inline;
+    animation: blink 1s linear infinite;
 	}
 </style>
