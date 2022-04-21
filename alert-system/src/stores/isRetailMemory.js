@@ -7,7 +7,6 @@ const fetchRetailMemory = async () => {
     const response = await fetch(url);
     const data = await response.json();
     const memory = await data.map((data) => {
-        console.log("This is the data from cpu " + data.Memory);
         return {
             name : "Memory",
             value : data.Memory
