@@ -56,6 +56,7 @@
 
 	//Import the Svelte component
 	import SvelteFC, { fcRoot } from 'svelte-fusioncharts';
+	import { derived } from 'svelte/store';
 
 	import Ref from '../components/refresh.svelte';
 
@@ -229,6 +230,18 @@
 		});
 	}
 	let chartConfigsDisk = setChartConfigsDisk();
+
+	console.log('Cheguei');
+
+	function verifyValues() {
+		console.log('CPU', promiseCpu);
+		console.log('MEMORY', promiseDisk);
+		console.log('DISK', promiseMem);
+
+		if (cpuValue > 75 || memoryValue > 75 || diskValue > 75) {
+			console.log('Sim!');
+		}
+	}
 </script>
 
 <div style="display: flex; margin : auto;">
@@ -252,6 +265,7 @@
 		<p>Loading...</p>
 	{:then values}
 		<SvelteFC {...chartConfigsDisk} />
+		{verifyValues()}
 	{:catch error}
 		<p style="color: red">{error.message}</p>
 	{/await}

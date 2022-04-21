@@ -12,20 +12,11 @@
 	const promise = getStatus();
 	let isAnyServiceStopped = false;
 
-	console.log('SERVICE STOPPED : ' + isAnyServiceStopped);
-	/*promisse.forEach(status => {
-		if(status.Info=="Services inactive"){
-			if(status.Value > 0){
-				isAnyServiceStopped = true;
-			}
-		}
-	});*/
 	console.log('isAnyServiceStopped ' + isAnyServiceStopped);
 	import { numeradores } from '../stores/numeradores';
 
 	function setServicesTrue() {
 		isAnyServiceStopped = true;
-		console.log('Set ' + isAnyServiceStopped);
 	}
 	import './index.scss';
 	import Ref from '../components/refresh.svelte';
