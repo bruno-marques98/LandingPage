@@ -37,7 +37,7 @@
 		>
 	</div>
 {/if}
-<div style="display:flex; justify-content: center">
+<div style="display:flex; justify-content: center; margin: 50px">
 	{#await promise}
 		<p>Loading...</p>
 	{:then status}
@@ -66,34 +66,26 @@
 			{/if}
 		{/each}
 		<div style="display: flex; justify-content: center;">
-			<div
-				style="display: grid;box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); text-align: center; padding: 20px 60px; margin: 20px"
-			>
+			<div class="card">
 				<h1 class="text-4xl text-begin uppercase" style="color:red">IS Retail</h1>
 				<p class="text-2xl text-begin uppercase">Mensagens</p>
 				<ol style="margin: 10px">
 					{#each status as stat}
 						{#if stat.Info == 'Services inactive'}
 							{#if stat.Value > 0}
-								<li
-									style="border: 1px solid #ddd; margin-top: -1px; background-color: #C9C0BE;	padding: 12px;  color: red"
-								>
+								<li class="item">
 									{stat.Info} : {stat.Value}
 								</li>
 							{/if}
 						{:else if stat.Info == 'Messages in error'}
 							{#if stat.Value > 0}
-								<li
-									style="border: 1px solid #ddd; margin-top: -1px; background-color: #C9C0BE; padding: 12px;  color: red"
-								>
-									{stat.Info} : {stat.Value}
+								<li class="item">
+									{stat.Info} : <b>{stat.Value}</b>
 								</li>
 							{/if}
 						{:else if stat.Info == 'Jobs in error'}
 							{#if stat.Value > 0}
-								<li
-									style="border: 1px solid #ddd; margin-top: -1px; background-color: #C9C0BE; padding: 12px;  color: red"
-								>
+								<li class="item">
 									{stat.Info} : {stat.Value}
 								</li>
 							{/if}
@@ -113,9 +105,7 @@
 				{/if}
 				<ol style="margin: 10px">
 					{#each $numeradores as num}
-						<li
-							style="border: 1px solid #ddd; margin-top: -1px; background-color: #C9C0BE; padding: 12px;  color: red"
-						>
+						<li class="item">
 							{num.name} : {num.resto}
 						</li>
 					{/each}
@@ -153,34 +143,26 @@
 			{/if}
 		{/each}
 		<div style="display: flex; justify-content: center;">
-			<div
-				style="display: grid;box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); text-align: center; padding: 20px 60px; margin: 20px"
-			>
+			<div class="card">
 				<h1 class="text-4xl text-begin uppercase" style="color:red">Staples</h1>
 				<p class="text-2xl text-begin uppercase">Mensagens</p>
 				<ol style="margin: 10px">
 					{#each status as stat}
 						{#if stat.Info == 'Services inactive'}
 							{#if stat.Value > 0}
-								<li
-									style="border: 1px solid #ddd; margin-top: -1px; background-color: #C9C0BE;	padding: 12px;  color: red"
-								>
+								<li class="item">
 									{stat.Info} : {stat.Value}
 								</li>
 							{/if}
 						{:else if stat.Info == 'Messages in error'}
 							{#if stat.Value > 0}
-								<li
-									style="border: 1px solid #ddd; margin-top: -1px; background-color: #C9C0BE; padding: 12px;  color: red"
-								>
+								<li class="item">
 									{stat.Info} : {stat.Value}
 								</li>
 							{/if}
 						{:else if stat.Info == 'Jobs in error'}
 							{#if stat.Value > 0}
-								<li
-									style="border: 1px solid #ddd; margin-top: -1px; background-color: #C9C0BE; padding: 12px;  color: red"
-								>
+								<li class="item">
 									{stat.Info} : {stat.Value}
 								</li>
 							{/if}
@@ -200,9 +182,7 @@
 				{/if}
 				<ol style="margin: 10px">
 					{#each $numeradores as num}
-						<li
-							style="border: 1px solid #ddd; margin-top: -1px; background-color: #C9C0BE; padding: 12px;  color: red"
-						>
+						<li class="item">
 							{num.name} : {num.resto}
 						</li>
 					{/each}
@@ -240,34 +220,26 @@
 			{/if}
 		{/each}
 		<div style="display: flex; justify-content: center;">
-			<div
-				style="display: grid;box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); text-align: center; padding: 20px 60px; margin: 20px"
-			>
+			<div class="card">
 				<h1 class="text-4xl text-begin uppercase" style="color:red">Agro</h1>
 				<p class="text-2xl text-begin uppercase">Mensagens</p>
 				<ol style="margin: 10px">
 					{#each status as stat}
 						{#if stat.Info == 'Services inactive'}
 							{#if stat.Value > 0}
-								<li
-									style="border: 1px solid #ddd; margin-top: -1px; background-color: #C9C0BE;	padding: 12px;  color: red"
-								>
+								<li class="item">
 									{stat.Info} : {stat.Value}
 								</li>
 							{/if}
 						{:else if stat.Info == 'Messages in error'}
 							{#if stat.Value > 0}
-								<li
-									style="border: 1px solid #ddd; margin-top: -1px; background-color: #C9C0BE; padding: 12px;  color: red"
-								>
+								<li class="item">
 									{stat.Info} : {stat.Value}
 								</li>
 							{/if}
 						{:else if stat.Info == 'Jobs in error'}
 							{#if stat.Value > 0}
-								<li
-									style="border: 1px solid #ddd; margin-top: -1px; background-color: #C9C0BE; padding: 12px;  color: red"
-								>
+								<li class="item">
 									{stat.Info} : {stat.Value}
 								</li>
 							{/if}
@@ -287,9 +259,7 @@
 				{/if}
 				<ol style="margin: 10px">
 					{#each $numeradores as num}
-						<li
-							style="border: 1px solid #ddd; margin-top: -1px; background-color: #C9C0BE; padding: 12px;  color: red"
-						>
+						<li class="item">
 							{num.name} : {num.resto}
 						</li>
 					{/each}
@@ -328,34 +298,26 @@
 			{/if}
 		{/each}
 		<div style="display: flex; justify-content: center;">
-			<div
-				style="display: grid;box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); text-align: center; padding: 20px 60px; margin: 20px"
-			>
+			<div class="card">
 				<h1 class="text-4xl text-begin uppercase" style="color:red">Daufood</h1>
 				<p class="text-2xl text-begin uppercase">Mensagens</p>
 				<ol style="margin: 10px">
 					{#each status as stat}
 						{#if stat.Info == 'Services inactive'}
 							{#if stat.Value > 0}
-								<li
-									style="border: 1px solid #ddd; margin-top: -1px; background-color: #C9C0BE;	padding: 12px;  color: red"
-								>
+								<li class="item">
 									{stat.Info} : {stat.Value}
 								</li>
 							{/if}
 						{:else if stat.Info == 'Messages in error'}
 							{#if stat.Value > 0}
-								<li
-									style="border: 1px solid #ddd; margin-top: -1px; background-color: #C9C0BE; padding: 12px;  color: red"
-								>
+								<li class="item">
 									{stat.Info} : {stat.Value}
 								</li>
 							{/if}
 						{:else if stat.Info == 'Jobs in error'}
 							{#if stat.Value > 0}
-								<li
-									style="border: 1px solid #ddd; margin-top: -1px; background-color: #C9C0BE; padding: 12px;  color: red"
-								>
+								<li class="item">
 									{stat.Info} : {stat.Value}
 								</li>
 							{/if}
@@ -375,9 +337,7 @@
 				{/if}
 				<ol style="margin: 10px">
 					{#each $numeradores as num}
-						<li
-							style="border: 1px solid #ddd; margin-top: -1px; background-color: #C9C0BE; padding: 12px;  color: red"
-						>
+						<li class="item">
 							{num.name} : {num.resto}
 						</li>
 					{/each}
@@ -390,3 +350,21 @@
 </div>
 
 <Ref />
+<style>
+	@keyframes blink { 50% { border-color:#fff ; }  }
+	.card {
+		display: grid;
+		box-shadow: 10px 10px 120px 10px rgba(0, 0, 0, 0.2), 0 6px 100px 0 rgba(0, 0, 0, 0.19); 
+		text-align: center; 
+		padding: 20px 60px; 
+		margin: 20px
+	}
+	.item{
+		border: 4px solid rgb(226, 40, 40); 
+		border-radius: 10px;
+		margin-top: 1px; 
+		padding: 12px;  
+		color: black;
+		animation: blink 2s linear infinite;
+	}
+</style>
